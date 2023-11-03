@@ -1,0 +1,46 @@
+@import 'style.css';
+@import 'normalize.css';
+
+.section_info {
+    margin-top: 30px;
+    padding: 50px 0;
+}
+
+
+.section_info_title {
+    font-size: 36px;
+    color: #080808;
+    font-weight: 800;
+}
+
+.info_content p{
+    font-size: 16px;
+    text-align: justify;
+    line-height: 2;
+}
+
+.info_content span {
+    margin-left: 20px;
+}
+
+.welcom {
+    text-align: center;
+    color: aqua;
+}
+
+.info_content_img{
+    display: flex;
+    justify-content: space-between;
+}
+.info_content_img img {
+    width:100%;
+    max-width: 390px;
+    height: 250px;
+    border-radius: 50%;
+}
+
+.info_content_img img:hover{
+    transform: scale(1.1);
+}
+
+
