@@ -1,0 +1,56 @@
+@import 'style.css';
+@import 'normalize.css';
+.welcom_content {
+    margin-top: 20px;
+    text-align: center;
+}
+
+nav {
+    width: 15%;
+    min-width: 200px;
+    margin: 80px 42.5%;
+    background: #dd0000; }
+  
+  nav ul {
+    list-style: none;
+    padding: 0px; }
+  
+  nav li {
+    float: none;
+    width: 100%; }
+    
+  nav li a {
+    display: block;
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+    text-decoration: none;
+    color: #000000; }
+  
+  nav li a:hover { 
+    border-bottom: 0px;
+    color: #d80000; }
+  
+  nav li:first-child a { border-left: 10px solid #BAC358; }
+  nav li:nth-child(2) a { border-left: 10px solid #62BDCF; }
+  nav li:nth-child(3) a { border-left: 10px solid #E05735; }
+  nav li:nth-child(4) a { border-left: 10px solid #af821b; }
+  nav li:last-child a { border-left: 10px solid #837D63; }
+  
+  nav li a:after {
+    content: "";
+    height: 100%;
+    left: 0;
+    top: 0;
+    width: 0px;
+    position: absolute;
+    transition: all 0.3s ease 0s;
+    -webkit-transition: all 0.3s ease 0s;
+    z-index: -1; }
+  
+  nav li a:hover:after { width: 100%; }
+  nav li:first-child a:after { background: #BAC358; }
+  nav li:nth-child(2) a:after { background: #62BDCF; }
+  nav li:nth-child(3) a:after { background: #E05735; }
+  nav li:nth-child(4) a:after { background: #af821b; }
+  nav li:last-child a:after { background: #00ff59; }
