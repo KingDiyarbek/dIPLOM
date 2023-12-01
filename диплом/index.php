@@ -4,6 +4,7 @@ $result_pizza = mysqli_query($connect, query:'SELECT * FROM `menu`');
 $result_filter = mysqli_query($connect, query:'SELECT * FROM `category`');
 $result_nav = mysqli_query($connect, query:'SELECT * FROM `category`');
 ?>
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -208,8 +209,8 @@ $result_nav = mysqli_query($connect, query:'SELECT * FROM `category`');
 
 <div class="filter">
     <div class="container">
-            <div class="filter_content">
-            <?php
+        <div class="filter_content">
+        <?php
             while ($filter = mysqli_fetch_assoc($result_filter))
             {
                 ?>
@@ -230,7 +231,7 @@ $result_nav = mysqli_query($connect, query:'SELECT * FROM `category`');
 </section>
 
 <div class="menu">
-<?php
+    <?php
         while ($menu = mysqli_fetch_assoc($result_pizza))
         {
             ?>
@@ -252,130 +253,7 @@ $result_nav = mysqli_query($connect, query:'SELECT * FROM `category`');
             <?php
         }
     ?>
-</div>
 
-<section class="section" id="burger">
-    <div class="container">
-        <div class="section_header">
-            <h3 class="section_title">Бургер</h3>
-        </div>
-    </div>
-</section>
-
-<div class="menu">
-    <div class="menu_card"><a href="#">
-        <div class="container_1">
-            <div class="wrapper">
-                <div class="banner-image"> </div>
-                <h3> Toyota Supra</h3>
-                <p>Lorem ipsum dolor sit amet, <br/>
-                consectetur adipiscing elit.</p>
-            </div>
-
-            <div class="button-wrapper"> 
-                <button class="btn outline"> от 450р</button>
-                <button class="btn fill">Выбрать</button>
-            </div>
-        </div>
-    </div></a>
-    
-
-    <div class="menu_card">
-        <div class="container_1">
-            <div class="wrapper">
-                <div class="banner-image"> </div>
-                <h3> Toyota Supra</h3>
-                <p>Lorem ipsum dolor sit amet, <br/>
-                consectetur adipiscing elit.</p>
-            </div>
-
-            <div class="button-wrapper"> 
-                <button class="btn outline">450р</button>
-                <button class="btn fill">Выбрать</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="menu_card">
-        <div class="container_1">
-            <div class="wrapper">
-                <div class="banner-image"> </div>
-                <h3> Toyota Supra</h3>
-                <p>Lorem ipsum dolor sit amet, <br/>
-                consectetur adipiscing elit.</p>
-            </div>
-
-            <div class="button-wrapper"> 
-                <button class="btn outline">450р</button>
-                <button class="btn fill">Выбрать</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="menu_card">
-        <div class="container_1">
-            <div class="wrapper">
-                <div class="banner-image"> </div>
-                <h3> Toyota Supra</h3>
-                <p>Lorem ipsum dolor sit amet, <br/>
-                consectetur adipiscing elit.</p>
-            </div>
-
-            <div class="button-wrapper"> 
-                <button class="btn outline">450р</button>
-                <button class="btn fill">Выбрать</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="menu_card">
-        <div class="container_1">
-            <div class="wrapper">
-                <div class="banner-image"> </div>
-                <h3> Toyota Supra</h3>
-                <p>Lorem ipsum dolor sit amet, <br/>
-                consectetur adipiscing elit.</p>
-            </div>
-
-            <div class="button-wrapper"> 
-                <button class="btn outline">450р</button>
-                <button class="btn fill">Выбрать</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="menu_card">
-        <div class="container_1">
-            <div class="wrapper">
-                <div class="banner-image"> </div>
-                <h3> Toyota Supra</h3>
-                <p>Lorem ipsum dolor sit amet, <br/>
-                consectetur adipiscing elit.</p>
-            </div>
-
-            <div class="button-wrapper"> 
-                <button class="btn outline">450р</button>
-                <button class="btn fill">Выбрать</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="menu_card">
-        <div class="container_1">
-            <div class="wrapper">
-                <div class="banner-image"> </div>
-                <h3> Toyota Supra</h3>
-                <p>Lorem ipsum dolor sit amet, <br/>
-                consectetur adipiscing elit.</p>
-            </div>
-
-            <div class="button-wrapper"> 
-                <button class="btn outline">450р</button>
-                <button class="btn fill">Выбрать</button>
-            </div>
-        </div>
-    </div>
-</div>
 
 <section class="section">
     <div class="container">
@@ -856,7 +734,6 @@ $result_nav = mysqli_query($connect, query:'SELECT * FROM `category`');
     </div>
 </div>
 <script src="js/modal.js"></script>
-<script src="js/modal_menu.js"></script>
 <!--Библиотека jQuery--> 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!--Готовый скрипт корзины-->
