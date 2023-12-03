@@ -74,11 +74,11 @@ $result_aksii = mysqli_query($connect, query:'SELECT * FROM `aksi`');
                 while ($aksi = mysqli_fetch_assoc($result_aksii))
                 {
                     ?>
-                    <form action="">
-                        <a href="aksiya/aksiya_1.html">
+                    <form action="aksiya_info.php">
+                        <a href="aksiya_info.php?id=<?= $aksi['idAksi'] ?>">
                             <div class="aksi_content">
                                 <div class="img_card"><img  src="image/aksii/1.jpg" alt="">
-                                    <a href="aksiya/aksiya_1.html" class="button_red">Подробнее</a>
+                                    <a href="aksiya_info.php?id=<?= $aksi['idAksi'] ?>" class="button_red">Подробнее</a>
                                 </div>
                                 <div class="aksi_content_text"><a href="aksiya/aksiya_1.html">
                                     <div class="data">

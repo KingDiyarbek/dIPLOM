@@ -16,8 +16,7 @@
 
 /*card*/
 .aksi_card {
-    display: flex;
-    flex-wrap: wrap;
+    display: inline-flex;
 }
 
 .aksi_card a {

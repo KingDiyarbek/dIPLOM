@@ -1,5 +1,6 @@
 @import 'style.css';
 @import 'normalize.css';
+@import 'aksii.css';
 *{
   padding: 0;
   margin: 0;
@@ -8,41 +9,59 @@ html {
   background: rgb(243, 232, 232);
 }
 .user {
+  position: fixed;
   width: 100%;
   height: 66px;
   margin: 0 auto;
-  position: fixed;
-  display: flex;
-  justify-content: flex-end;
-  padding-right: 20px;
   background-color: rgb(214, 221, 223);
+  display: flex;
   align-items: center;
+  z-index: 1;
+}
+
+.user_content {
+  position: fixed;
+  right: 0;
+  display:flex;
+  align-items: center;
+  padding-right: 20px;
 }
 
 .user h2 {
   padding-right: 10px;
 }
-.user button {
+.btn_user {
+  text-decoration: none ;
   width: 95px;
   margin-left: -5px;
   border: none;
   padding: 12px 15px;
-  border-radius: 24px;
+  border-radius: 24px;  
   letter-spacing: 2px;  
   cursor: pointer;
-  background: rgba(22, 22, 22, 0.9);
+  background: rgba(28, 159, 168, 0.9);
   color: rgba(255,255,255,0.95);
   filter: drop-shadow(0);
-  font-weight: bold;
-  transition: all .3s ease; 
+  font-weight: 700;
+  transition: all .4s ease; 
 }
+
+.btn_user:hover {
+  background: #03afff;
+  color: rgb(0, 0, 0);
+  font-weight: 700;
+}
+
+
 .sidebar_menu {
   position: fixed;
+  overflow-y: scroll;
   left: 0;
   width: 100%;
   max-width: 200px;
   height: 100%;
   background: #042331;
+  z-index: 1;
 }
 
 .sidebar_menu h2 {
@@ -75,12 +94,14 @@ html {
   padding-left: 60px;
 }
 
+.tovar {
+  margin-left: 220px;
+  padding-top: 100px;
+}
+
 .container_tovar {
-    margin-left: 10px;
-    width: 100%;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding-top: 100px;
+  height: 100vh;
+  width: 100%;  
 }
 
 .button-wrapper .btn_delete {
@@ -99,4 +120,87 @@ html {
   color: black;
   font-size: 16px;
   font-weight: 700;
+}
+
+.sidebar_create {
+  padding: 10px;
+  width: 100%;
+  background: #042331;  
+  box-sizing: border-box;
+  border-top: 2px solid rgb(255, 255, 255,.1);
+  border-bottom: 1px solid black;
+  border-left: none;
+  transition: .4s;
+  cursor: pointer;
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+}
+.sidebar_create:hover {
+  padding-left: 60px;
+}
+
+.sidebar_create a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+
+.create {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  padding: 100px 250px;
+  overflow-y: auto;
+  display: none;
+  z-index: 10;
+}
+
+.container_create {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  background-color: #fff;
+  margin: auto;
+  color: #000;
+  border-radius: 16px;
+  margin-left: 200px;
+  padding: 30px 15px 10px;
+  cursor: default;
+}
+.container_create input {
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.container_create button {
+  margin-left: 10px;
+  max-width:150px;
+  
+}
+
+.aksi_priwiew {
+  margin-top: 10px;
+}
+
+.aksi_btn {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 20px;
+}
+
+.aksi_btn img { 
+  width: 35px;
+}
+
+.aksi_btn button {
+  cursor: pointer;
+  background-color: #03afff;
+  padding: 10px;
+  border-radius: 20px;
 }

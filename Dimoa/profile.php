@@ -2,24 +2,11 @@
 session_start();
 require_once 'connect.php';
 $result_sidebar = mysqli_query($connect, query:'SELECT * FROM `category`');
-$login = $_POST['login'];
-$password = $_POST['password'];
-$chek_user= mysqli_query($connect, query:"SELECT * FROM `user` WHERE `login` = '$login' AND `password` = '$password'");
-$result_pizza = mysqli_query($connect, query:'SELECT * FROM `menu`');
+$result_pizza = mysqli_query($connect, query:"SELECT * FROM `menu`");
+$result_aksii = mysqli_query($connect, query:'SELECT * FROM `aksi`');
 
-if (mysqli_num_rows($chek_user) > 0) {
-
-    $user = mysqli_fetch_assoc($chek_user);
-
-    $_SESSION ['user'] = [
-        "id" => $user['idUser'],
-        "Name" => $user['Name'],
-        "Surname" => $user['Surname'],
-        "Patronymic" => $user['Patronymic']
-    ];
-} else {
-    $_SESSION['message'] = 'Неверный логин или пароль';
-    header('Location:admin.php');
+if (!isset($_SESSION['user'])) {
+    header('Location: admin.php');
 }
 ?>
 <!DOCTYPE html>
@@ -32,28 +19,32 @@ if (mysqli_num_rows($chek_user) > 0) {
 </head>
 <body>
 <div class="user">
-    <h2><?= $_SESSION['user']['Name'] ?> <?= $_SESSION['user']['Surname'] ?> <?= $_SESSION['user']['Patronymic'] ?> </h2>
-    <button class="btn_user" type="submit">ВЫХОД</button>
+    <div class="user_content">
+        <h2><?= $_SESSION['user']['Name'] ?> <?= $_SESSION['user']['Surname'] ?> <?= $_SESSION['user']['Patronymic'] ?> </h2>
+        <a class="btn_user" href="logout.php">ВЫХОД</a>
+    </div>
+
 </div>
 <div class="sidebar_menu">
     <h2>DIMOA</h2>
     <div class="sidebar_content">
-        <?php
-            while ($sidebar = mysqli_fetch_assoc($result_sidebar))
-            {
-                ?>
-                <ul>
-                    <li><a href="#pizza"><?= $sidebar['Name']; ?></a></li>
-                </ul>
-                <?php
-            }
-        ?>
-                <ul>
-                    <li><a href="#pizza">Акции</a></li>
-                </ul>
+        <ul>
+            <li><a href="#11">Акции</a></li>
+        </ul>
+            <?php
+                while ($sidebar = mysqli_fetch_assoc($result_sidebar))
+                {
+                    ?>
+                    <ul>
+                        <li><a href="#12?id=<?= $sidebar['idCategory'] ?>"><?= $sidebar['Name']; ?></a></li>
+                    </ul>
+                    <?php
+                }
+            ?>
+        <button class="sidebar_create">+</button>
     </div>
 </div>
-<div class="tovar">
+<div class="tovar" id="12">
     <div class="container_tovar">
     <?php
         while ($menu = mysqli_fetch_assoc($result_pizza))
@@ -79,5 +70,16 @@ if (mysqli_num_rows($chek_user) > 0) {
     ?>
     </div>
 </div>
+<div class="create">
+    <div class="container_create">
+        <h1>Добавление категории</h1>
+        <form action="create_category.php" method="post">
+            <input type="text" name="Name" placeholder="Названия">
+            <button type="submit">Добавить</button>
+        </form>
+        <button class="modal__close">&#10006;</button>
+    </div>
+</div>
+<script src="js/profile.js"></script>
 </body>
-</html> 
+</html>
