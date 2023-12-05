@@ -35,40 +35,53 @@ if (!isset($_SESSION['user'])) {
                 while ($sidebar = mysqli_fetch_assoc($result_sidebar))
                 {
                     ?>
-                    <ul>
-                        <li><a href="#12?id=<?= $sidebar['idCategory'] ?>"><?= $sidebar['Name']; ?></a></li>
-                    </ul>
+                        <ul>
+                            <li><a href="tovar.php?id=<?= $sidebar['idCategory'] ?>"><?= $sidebar['Name']; ?></a></li>
+                        </ul>  
                     <?php
                 }
             ?>
         <button class="sidebar_create">+</button>
     </div>
 </div>
-<div class="tovar" id="12">
+<div class="tovar">
     <div class="container_tovar">
-    <?php
-        while ($menu = mysqli_fetch_assoc($result_pizza))
-        {
-            ?>
-            <div class="menu_card">
-                <div class="container_1">
-                    <div class="wrapper">
-                        <div class="banner-image"><img src="image/menu/pizza/po-domashnemu.jpg" alt=""></div>
-                        <h3><?= $menu['Name']; ?></h3>
-                        <p><?= $menu['Description']; ?></p>
-                    </div>
-
-                    <form class="button-wrapper" action="" method="post">
-                        <button class="btn_delete"><img class="delete" src="image/profile/delete.png" alt=""></button>
-                        <input type="hidden" name="id" value="<?= $menu['idMenu'] ?>">
-                        <button class="btn_update" type="submit">Изменить</button>
-                    </form>
-                </div>
-            </div>
-            <?php
-        }
-    ?>
+        <div class="aksi_card">
+                <?php
+                    while ($aksi = mysqli_fetch_assoc($result_aksii))
+                    {
+                        ?>
+                        <form action="aksiya_info.php">
+                                <div class="aksi_content">
+                                    <div class="img_card"><img src="<?= $aksi['Image'] ?>" alt="">
+                                    </div>
+                                    <div class="aksi_content_text">
+                                        <div class="data">
+                                            <h3 class="data"><?= $aksi['Data'] ?></h3>
+                                        </div>
+                                        <div class="aksi_text">
+                                            <h2><?= $aksi['Name']; ?></h2>
+                                        </div>
+                                            
+                                        <div class="aksi_priwiew">
+                                            <p><?= $aksi['Description']; ?></p>
+                                        </div>
+                                    </a></div>
+                                    <div class="aksi_btn">
+                                        <a href="delete_aksi.php?id=<?= $aksi['idAksi'] ?>"><img src="image/profile/delete.png" alt=""></a>
+                                        <button>Изменить</button>
+                                    </div>
+                                    
+                                </div>
+                        </form>
+                        
+                        <?php
+                    }
+                ?>
+                    <button class="aksi_create">+</button>
+            </div>    
     </div>
+    
 </div>
 <div class="create">
     <div class="container_create">
@@ -79,6 +92,22 @@ if (!isset($_SESSION['user'])) {
         </form>
         <button class="modal__close">&#10006;</button>
     </div>
+</div>
+
+<div class="create_aksi">
+    <div class="container_create_aksi">
+        <h1>Добавление акции</h1>
+        <div class="content_create_aksi"> 
+            <form action="create_aksi.php" method="post"  enctype="multipart/form-data">
+                <input type="text" name="Name" placeholder="Названия">
+                <input type="date" name="Date">
+                <textarea  name="Description" placeholder="Названия"></textarea>
+                <input type="file" name="file">
+                <button type="submit">Добавить</button>
+            </form>
+            <button class="modal__close">&#10006;</button>
+        </div>
+        </div>
 </div>
 <script src="js/profile.js"></script>
 </body>

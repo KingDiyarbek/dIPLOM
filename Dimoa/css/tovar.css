@@ -1,0 +1,61 @@
+@import'style.css';
+@import'profile.css';
+.tovar_create {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: red;
+}
+
+.create_tovar {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    padding: 10px 30px;
+    overflow-y: auto;
+    display: none;
+    z-index: 10;
+}
+  .container_create_tovar {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    background-color: #fff;
+    margin: auto;
+    color: #000;
+    border-radius: 16px;
+    margin-left: 200px;
+    padding: 30px 15px 10px;
+    cursor: default;
+  }
+  .content_create_tovar form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .content_create_tovar form input {
+    padding: 10px;
+    border-radius: 20px;
+    margin-top: 10px;
+  }
+  
+  .content_create_tovar form textarea {
+    padding: 10px;
+    border-radius: 20px;
+    margin-top: 10px;
+  }
+  
+  .content_create_tovar form button {
+    width: 100%;
+    max-width: 250px;
+    margin-top: 10px;
+    background: #033349;
+    transition: all .3s linear;
+  }
+  
+  .content_create_ form button:hover{
+    transform: none;
+    background: red;
+  }
+  
