@@ -59,9 +59,9 @@ if (!isset($_SESSION['user'])) {
                             </div>
 
                             <form class="button-wrapper" action="" method="post">
-                                <input type="hidden" value="<?= $tovar['Price'] ?>"><h1 class="btn outline"><?= $tovar['Price'] ?></h1>
+                                <a href="delete_tovar.php?id=<?= $tovar['idMenu'] ?>"><img class="delete" src="image/profile/delete.png" alt=""></a>
                                 <input type="hidden" name="id" value="<?= $tovar['idMenu'] ?>">
-                                <button type="submit">Выбрать</button>
+                                <button type="submit"><a href="update.php?id=<?= $tovar['idMenu'] ?>">Изменить</a></button>
                             </form>
                         </div>
                     </div>

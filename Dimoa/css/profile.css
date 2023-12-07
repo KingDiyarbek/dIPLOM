@@ -6,7 +6,7 @@
   margin: 0;
 }
 html {
-  background: rgb(243, 232, 232);
+  background: rgb(200, 228, 178);
 }
 .user {
   position: fixed;
@@ -60,7 +60,7 @@ html {
   width: 100%;
   max-width: 200px;
   height: 100%;
-  background: #042331;
+  background: #062E5F;
   z-index: 1;
 }
 
@@ -68,11 +68,12 @@ html {
   color: white;
   text-align: center;
   padding: 15px;
-  background: rgb(6, 114, 141);
+  background: rgb(248, 29, 46);
 }
 
 .sidebar_content ul li {
   list-style: none;
+  font-weight: 700;
 }
 
 .sidebar_content ul li a {
@@ -83,7 +84,7 @@ html {
   font-size: 20px;
   padding-left: 40px;
   text-decoration: none;
-  color: white;
+  color: rgb(248, 29, 46);
   box-sizing: border-box;
   border-top: 2px solid rgb(255, 255, 255,.1);
   border-bottom: 1px solid black;

@@ -69,7 +69,7 @@ if (!isset($_SESSION['user'])) {
                                     </a></div>
                                     <div class="aksi_btn">
                                         <a href="delete_aksi.php?id=<?= $aksi['idAksi'] ?>"><img src="image/profile/delete.png" alt=""></a>
-                                        <button>Изменить</button>
+                                        <button><a href="update.php?id=<?= $aksi['idAksi'] ?>">Изменить</a></button>
                                     </div>
                                     
                                 </div>
