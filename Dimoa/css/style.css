@@ -1,6 +1,7 @@
 @import 'normalize.css';
 html {
     scroll-behavior: smooth;
+    background: rgb(253, 238, 220);
 }
 
 body {
@@ -88,7 +89,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 /*header*/
 .header{
-    background: #000;
+    background: #0D1C43;
     padding-top: 10px;
     position: fixed;
     top: 0;
@@ -129,7 +130,7 @@ nav ul li{
 }
 nav ul  li a{
   text-decoration: none;
-  color: white;
+  color: #FC9192;
   display: block;
   padding: 15px;
   transition: color .1s linear;
@@ -737,7 +738,7 @@ textarea {
 
 .footer {
   margin-top: 80px;
-  background: #252527;
+  background: #0D1C43;
 }
 
 .footer_inner_content {

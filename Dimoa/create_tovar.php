@@ -15,5 +15,5 @@ if (!empty($_POST)) {
         move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile);
     }
 }
-header('Location: tovar.php?id=$"')
+header('Location: ' . $_SERVER['HTTP_REFERER']);
 ?>

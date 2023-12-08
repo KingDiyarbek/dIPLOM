@@ -44,14 +44,16 @@ $tovar = mysqli_fetch_assoc($tovar);
 </div>
 <div class="update">
     <div class="update_content">
-            <form action="">
+        <form action="config/update_tovar.php" method="post"  enctype="multipart/form-data">
+            <input type="hidden" name="id_tovar" value="<?= $tovar['idMenu']?>">
             <label for="Name">Название</label>
-            <input type="text" value="<?= $tovar['Name']?>">
-            <label for="Price">Цена</label>
-            <input type="text" value="<?= $tovar['Price']?>">
+            <input type="text" name="Name" value="<?= $tovar['Name']?>">
+            <label for="Price" >Цена</label>
+            <input type="text" name="Price" value="<?= $tovar['Price']?>">
             <label for="Description">Описание</label>
             <textarea name="Description"><?= $tovar['Description']?></textarea>
-            <input type="file"><img src="<?= $tovar['Image']?>" alt="">
+            <input type="file" name="file"><img src="<?= $tovar['Image']?>" alt="">
+            <button>Изменить</button>
         </form>
     </div>
 
