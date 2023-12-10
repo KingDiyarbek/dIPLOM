@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'connect.php';
+require_once 'config/connect.php';
 $result_sidebar = mysqli_query($connect, query:'SELECT * FROM `category`');
 $result_pizza = mysqli_query($connect, query:"SELECT * FROM `menu`");
 $result_aksii = mysqli_query($connect, query:'SELECT * FROM `aksi`');
@@ -68,7 +68,7 @@ if (!isset($_SESSION['user'])) {
                                         </div>
                                     </a></div>
                                     <div class="aksi_btn">
-                                        <a href="delete_aksi.php?id=<?= $aksi['idAksi'] ?>"><img src="image/profile/delete.png" alt=""></a>
+                                        <a href="config/delete_aksi.php?id=<?= $aksi['idAksi'] ?>"><img src="image/profile/delete.png" alt=""></a>
                                         <button><a href="update.php?id=<?= $aksi['idAksi'] ?>">Изменить</a></button>
                                     </div>
                                     
@@ -86,7 +86,7 @@ if (!isset($_SESSION['user'])) {
 <div class="create">
     <div class="container_create">
         <h1>Добавление категории</h1>
-        <form action="create_category.php" method="post">
+        <form action="config/create_category.php" method="post">
             <input type="text" name="Name" placeholder="Названия">
             <button type="submit">Добавить</button>
         </form>
@@ -98,7 +98,7 @@ if (!isset($_SESSION['user'])) {
     <div class="container_create_aksi">
         <h1>Добавление акции</h1>
         <div class="content_create_aksi"> 
-            <form action="create_aksi.php" method="post"  enctype="multipart/form-data">
+            <form action="config/create_aksi.php" method="post"  enctype="multipart/form-data">
                 <input type="text" name="Name" placeholder="Названия">
                 <input type="date" name="Date">
                 <textarea  name="Description" placeholder="Названия"></textarea>

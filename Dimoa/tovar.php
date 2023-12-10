@@ -1,5 +1,5 @@
 <?
-require_once 'connect.php';
+require_once 'config/connect.php';
 session_start();
 $id_tovar = $_GET['id'];
 $result_sidebar = mysqli_query($connect, query:'SELECT * FROM `category`');
@@ -58,7 +58,7 @@ if (!isset($_SESSION['user'])) {
                                 <p><?= $tovar['Description']; ?></p>
                             </div>
 
-                            <form class="button-wrapper" action="" method="post">
+                            <form class="button-wrapper">
                                 <a href="delete_tovar.php?id=<?= $tovar['idMenu'] ?>"><img class="delete" src="image/profile/delete.png" alt=""></a>
                                 <input type="hidden" name="id" value="<?= $tovar['idMenu'] ?>">
                                 <button type="submit"><a href="update.php?id=<?= $tovar['idMenu'] ?>">Изменить</a></button>
@@ -76,7 +76,7 @@ if (!isset($_SESSION['user'])) {
 <div class="create">
     <div class="container_create">
         <h1>Добавление категории</h1>
-        <form action="create_category.php" method="post" enctype="multipart/form-data">
+        <form action="config/create_category.php" method="post" enctype="multipart/form-data">
             <input type="text" name="Name" placeholder="Названия">
             <button type="submit">Добавить</button>
         </form>
@@ -88,7 +88,7 @@ if (!isset($_SESSION['user'])) {
     <div class="container_create_tovar">
         <h1>Добавление товара</h1>
         <div class="content_create_tovar"> 
-            <form action="create_tovar.php" method="post"  enctype="multipart/form-data">
+            <form action="config/create_tovar.php" method="post"  enctype="multipart/form-data">
                 <input type="text" name="Name" placeholder="Названия">
                 <input type="text" name="Price" placeholder="Цена">
                 <textarea  name="Description" placeholder="Названия"></textarea>

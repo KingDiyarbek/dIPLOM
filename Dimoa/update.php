@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'connect.php';
+require_once 'config/connect.php';
 $id = $_GET['id'];
 $result_sidebar = mysqli_query($connect, query:'SELECT * FROM `category`');
 $tovar = mysqli_query($connect, query:"SELECT * FROM `menu` WHERE `idMenu`= '$id'");

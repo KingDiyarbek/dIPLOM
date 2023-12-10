@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once '../connect.php';
+require_once 'connect.php';
 $uploaddir = '../image/menu';
 $file = $uploaddir.$_FILES['file']['name'];
 $id_tovar = $_POST['id_tovar'];
@@ -14,5 +14,5 @@ if (!empty($_POST)) {
         move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile);
     }
 }
-header('Location: profile.php')
+header('Location: ' . $_SERVER['HTTP_REFERER']);
 ?>

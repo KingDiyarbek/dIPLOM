@@ -1,5 +1,5 @@
 <?php
-require_once 'connect.php';
+require_once 'config/connect.php';
 $result_aksii = mysqli_query($connect, query:'SELECT * FROM `aksi`');
 ?>
 

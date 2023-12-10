@@ -130,7 +130,7 @@ nav ul li{
 }
 nav ul  li a{
   text-decoration: none;
-  color: #FC9192;
+  color: #7CD10B;
   display: block;
   padding: 15px;
   transition: color .1s linear;
@@ -196,8 +196,7 @@ nav ul li:hover ul {
 
 .section_title {
     font-size: 24px;
-    color: rgb(179, 41, 41);
-    text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #8e1d92, 0 0 0.5em #ff4444, 0 0 0.1em #00ff95, 0 5px 5px #000;
+    color: #97159A;
     font-weight: 700;
     text-transform: uppercase;
 }
@@ -761,7 +760,7 @@ margin-left: 50px;
 }
 
 .footer_mesto h2 {
-color: white;
+color: #7CD10B;
 font-size: 20px;
 }
 
@@ -785,7 +784,7 @@ margin-left: -65px;
 }
 
 .footer_telefon h2 {
-color: white;
+color: #7CD10B;
 font-size: 20px;
 }
 
@@ -800,7 +799,7 @@ font-size: 16px;
 }
 
 .footer_email h2 {
-color: white;
+color: #7CD10B;
 font-size: 20px;
 }
 
@@ -827,7 +826,7 @@ margin-top: 20px;
 }
 
 .footer_content_menu h3 {
-color: rgb(255, 255, 255);
+color: #7CD10B;
 font-size: 20px;
 }
 
@@ -847,12 +846,12 @@ font-weight: 500;
 
 .footer_content_aksi a {
 text-decoration: none;
-color: white;
+color: #7CD10B;
 font-size: 20px;
 }
 
 
 .footer_content_reklama h3 {
-color: white;
+color: #7CD10B;
 font-size: 20px;
 }

@@ -1,5 +1,5 @@
 <?
-require_once 'connect.php';
+require_once 'config/connect.php';
 $id_aksiya = $_GET['id'];
 $aksiya_info = mysqli_query($connect, query:"SELECT * FROM `aksi` WHERE `idAksi` = '$id_aksiya'");
 $aksiya_info = mysqli_fetch_assoc($aksiya_info);

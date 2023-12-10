@@ -1,5 +1,5 @@
 <?php
-require_once 'connect.php';
+require_once 'config/connect.php';
 $result_pizza = mysqli_query($connect, query:'SELECT * FROM `menu`');
 $result_filter = mysqli_query($connect, query:'SELECT * FROM `category`');
 $result_nav = mysqli_query($connect, query:'SELECT * FROM `category`');
@@ -213,7 +213,7 @@ $result_nav = mysqli_query($connect, query:'SELECT * FROM `category`');
             while ($filter = mysqli_fetch_assoc($result_filter))
             {
                 ?>
-                <a class="filter_text" href="#pizza"><?= $filter['Name']; ?></a>  
+                <a class="filter_text" href="menu.php?id=<?= $filter['idCategory'] ?>#tovar"> <?= $filter['Name']; ?></a>  
                 <?php
             }
         ?>
