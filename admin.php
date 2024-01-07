@@ -2,7 +2,10 @@
     session_start();
     require_once 'config/connect.php';
     if (isset($_SESSION['user'])) {
-        header('Location: profile.php');
+        header('Location: user/profile.php');
+    }
+    if (isset($_SESSION['admin'])) {
+        header('Location: admin/profile.php');
     }
 ?>
 <!DOCTYPE html>
@@ -18,8 +21,8 @@
     <div class="brand-logo"></div>
     <div class="brand-title">DIMOA</div>
     <form action="config/admin_config.php" method="post">
-        <input type="text" name="login" placeholder="Логин"/>
-        <input type="password" name="password" placeholder="Введите проль" />
+        <input type="text" name="login" placeholder="Логин">
+        <input type="password" name="password" placeholder="Введите проль" >
         <button type="submit">ВХОД</button>
     </form>
 </div>

@@ -1,7 +1,7 @@
 @import 'profile.css';
 .update {
     width: 100%;
-    max-width: 800px;
+    max-width: 600px;
     margin-left: 500px;
     padding-top: 100px;
 }
@@ -16,8 +16,129 @@
     border-radius: 5px;
 }
 
+.update_content button {
+    width: 100%;
+    max-width: 600px;
+}
+
 .update_content textarea {
     width: 100%;
     max-width: 600px;
     margin-top: 5px;
 }
+
+img {
+    width: 250px;
+    margin-top: 10px;
+    
+}
+
+.card-container {
+    background-color: #231E39;
+    border-radius: 5px;
+    box-shadow: 0px 10px 20px -10px rgba(0,0,0,0.75);
+    color: #B3B8CD;
+    padding-top: 30px;
+    position: relative;
+    width: 350px;
+    max-width: 100%;
+    text-align: center;
+    }
+    
+    .card-container .round {
+    border: 1px solid #03BFCB;
+    border-radius: 50%;
+    padding: 7px;
+    display: inline-block;
+    clip-path: circle(50%);
+    overflow: hidden;
+    width: 100%;
+    max-width: 250px;
+    height: 250px;
+    object-fit: cover;
+    
+    }
+    
+    .login {
+    padding: 20px 0;
+    }
+    .skills {
+    margin-top: 15px;
+    padding-bottom: 40px;
+    }
+    .primary {
+    background-color: #03BFCB;
+    border: 1px solid #03BFCB;
+    border-radius: 3px;
+    color: #231E39;
+    font-family: Montserrat, sans-serif;
+    font-weight: 500;
+    padding: 10px 25px;
+    }
+    
+    .primary.ghost {
+    background-color: transparent;
+    color: #02899C;
+    }
+    
+    .user_create {
+    background-color: red;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    margin-top: 130px;
+    color: white;
+    font-weight: 700;
+    font-size: 20px;
+    cursor: pointer;
+    }
+    
+    .create_user {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    padding: 10px 30px;
+    overflow-y: auto;
+    display: none;
+    z-index: 10;
+    }
+    
+    .container_create_user {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    background-color: #fff;
+    margin: auto;
+    color: #000;
+    border-radius: 16px;
+    margin-left: 200px;
+    padding: 30px 15px 10px;
+    cursor: default;
+    }
+    .content_create_user form {
+    display: flex;
+    flex-direction: column;
+    }
+    
+    .content_create_user form input {
+    padding: 10px;
+    border-radius: 20px;
+    margin-top: 10px;
+    }
+    
+    
+    .content_create_user form button {
+    width: 100%;
+    max-width: 250px;
+    margin-top: 10px;
+    background: #033349;
+    transition: all .3s linear;
+    }
+    
+    .content_create_user form button:hover{
+    transform: none;
+    background: red;
+    }
+    
+    

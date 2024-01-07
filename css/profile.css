@@ -94,17 +94,38 @@ html {
 .sidebar_content ul li a:hover {
   padding-left: 60px;
 }
+.sidebar_content ul li ul {
+  display: none;
+  animation: ani 1.5s forwards;
+}
+
+.sidebar_content ul li:hover ul {
+  opacity: 1;
+  display: block;
+}
+
+@keyframes ani {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+.sidebar_content button {
+  top: auto;
+}
+
 
 .tovar {
-  margin-left: 220px;
+  margin-left: 205px;
   padding-top: 100px;
 }
 
 .container_tovar {
   width: 100%;
   max-width: 1200px;
-  display: flex;
-  flex-direction: column;
+}
+
+.menu {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
 }
 
 .button-wrapper .btn_delete {
@@ -118,29 +139,31 @@ html {
   width: 35px;
 }
 
+.setup_tovar  {
+  text-decoration: none;
+  margin-left: -8px;
+  border: none;
+  padding: 12px 15px;
+  border-radius: 24px;
+  font-size: 12px;
+  letter-spacing: 3px;  
+  cursor: pointer;
+  background: rgba(0, 212, 255, 0.9);
+  color: rgba(255,255,255,0.95);
+  filter: drop-shadow(0);
+  font-weight: bold;
+  transition: 0.5s;
+}
+
+.setup_tovar:hover {
+  background: palevioletred;
+}
+
 .button-wrapper .btn_update {
   background: rgb(44, 212, 86);
   color: black;
   font-size: 16px;
   font-weight: 700;
-}
-
-.sidebar_create {
-  padding: 10px;
-  width: 100%;
-  background: #042331;  
-  box-sizing: border-box;
-  border-top: 2px solid rgb(255, 255, 255,.1);
-  border-bottom: 1px solid black;
-  border-left: none;
-  transition: .4s;
-  cursor: pointer;
-  color: white;
-  font-size: 20px;
-  font-weight: 700;
-}
-.sidebar_create:hover {
-  padding-left: 60px;
 }
 
 .sidebar_create a {
@@ -150,40 +173,6 @@ html {
   font-weight: 700;
 }
 
-
-.create {
-  position: fixed;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  cursor: pointer;
-  padding: 100px 250px;
-  overflow-y: auto;
-  display: none;
-  z-index: 10;
-}
-
-.container_create {
-  position: relative;
-  width: 100%;
-  max-width: 500px;
-  background-color: #fff;
-  margin: auto;
-  color: #000;
-  border-radius: 16px;
-  margin-left: 200px;
-  padding: 30px 15px 10px;
-  cursor: default;
-}
-.container_create input {
-  padding: 10px;
-  border-radius: 20px;
-}
-
-.container_create button {
-  margin-left: 10px;
-  max-width:150px;
-  
-}
 
 .aksi_priwiew {
   margin-top: 10px;
@@ -269,6 +258,69 @@ html {
 }
 
 .content_create_aksi form button:hover{
+  transform: none;
+  background: red;
+}
+
+
+.tovar_create {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: red;
+  margin-top: 100%;
+  margin-left: 10px;
+}
+
+.create_tovar {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  padding: 10px 30px;
+  overflow-y: auto;
+  display: none;
+  z-index: 10;
+}
+.container_create_tovar {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  background-color: #fff;
+  margin: auto;
+  color: #000;
+  border-radius: 16px;
+  margin-left: 200px;
+  padding: 30px 15px 10px;
+  cursor: default;
+}
+.content_create_tovar form {
+  display: flex;
+  flex-direction: column;
+}
+
+.content_create_tovar form input {
+  padding: 10px;
+  border-radius: 20px;
+  margin-top: 10px;
+  border: 2px solid rgba(255, 0, 0, 0.5);
+}
+
+.content_create_tovar form textarea {
+  padding: 10px;
+  border-radius: 20px;
+  margin-top: 10px;
+}
+
+.content_create_tovar form button {
+  width: 100%;
+  max-width: 250px;
+  margin-top: 10px;
+  background: #033349;
+  transition: all .3s linear;
+}
+
+.content_create_ form button:hover{
   transform: none;
   background: red;
 }

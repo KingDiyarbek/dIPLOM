@@ -41,8 +41,10 @@ const modalController = ({modal, btnOpen, btnClose, time = 300}) => {
     modalElem.addEventListener('click', closeModal);
   };
 
+  
   modalController({
     modal: '.create_tovar',
     btnOpen: '.tovar_create',
     btnClose: '.modal__close',
   });
+

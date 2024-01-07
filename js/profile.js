@@ -41,18 +41,11 @@ const modalController = ({modal, btnOpen, btnClose, time = 300}) => {
     modalElem.addEventListener('click', closeModal);
   };
 
-  modalController({
-    modal: '.create',
-    btnOpen: '.sidebar_create',
-    btnClose: '.modal__close',
-  });
+
 
   modalController({
     modal: '.create_aksi',
     btnOpen: '.aksi_create',
     btnClose: '.modal__close',
   });
-
-  
-
 
