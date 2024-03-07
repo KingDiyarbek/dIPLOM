@@ -16,5 +16,5 @@ if (!empty($_POST)) {
         move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile);
     }
 }
-header('Location: ' . $_SERVER['HTTP_REFERER']);
+header('Location: ../admin/sotrudniki.php');
 ?>

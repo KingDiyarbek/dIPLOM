@@ -25,5 +25,12 @@ if (!empty($_FILES['file']['name'])) {
     mysqli_query($connect, "UPDATE menu SET Name = '$Name', Price = '$Price', Description = '$Description' WHERE menu.idMenu = '$id_tovar'");
 }
 
-header('Location: ' . $_SERVER['HTTP_REFERER']);
+if ($_SESSION['user']['Post'] == 'Администратор') {
+    // Если пользователь - администратор, перенаправляем его на страницу администратора
+    header("Location: ../user/tovar.php?id=" .$id_category);
+} else {
+    // Иначе, если пользователь - обычный пользователь, перенаправляем его на страницу пользователя
+    header("Location: ../admin/tovar.php?id=" .$id_category);
+}
+
 ?>

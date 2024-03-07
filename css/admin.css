@@ -84,3 +84,64 @@ button {
 button:hover {
     box-shadow: none;
 }
+
+.error-message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    text-align: center;
+    background: rgb(255, 255, 255);
+    color: rgb(255, 0, 0);
+    margin-top: 30px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+@media screen and (min-width: 992px) and (max-width: 1200px){
+    body {
+        background: red;
+    }
+
+    .container {
+        max-width: 500px;
+        max-height: 450px;
+    }
+
+}
+@media screen and (min-width: 768px) and (max-width: 992px){
+    body {
+        background: orange;
+    }
+    .container {
+        max-width: 450px;
+        max-height: 390px;
+    }
+
+    .brand-logo {
+        width: 70px;
+        height: 70px;
+    }
+
+    form input {
+        height: 45px;
+    }
+}
+@media screen and (min-width: 576px) and (max-width: 768px){
+    body {
+        background: green;
+    }
+    .container {
+        max-width: 400px;
+        max-height: 430px;
+    }
+}
+@media screen and (max-width: 576px){
+    body {
+        background: rgb(128, 0, 60);
+    }
+    .container {
+        width: 310px;
+        max-height: 420px;
+    }
+}

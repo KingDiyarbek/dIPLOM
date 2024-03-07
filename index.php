@@ -1,6 +1,7 @@
 <?php
 require_once 'config/connect.php';
 $listCategory = mysqli_query($connect, query: 'SELECT * FROM `category`');
+$mobileMenu = mysqli_query($connect, query: 'SELECT * FROM `category`');
 $categories = mysqli_fetch_all($listCategory, MYSQLI_ASSOC);
 $menuItems = mysqli_query($connect, "SELECT menu.*, category.Name_category FROM menu INNER JOIN category ON menu.Category_idCategory = category.idCategory");
 $menuItems = mysqli_fetch_all($menuItems, MYSQLI_ASSOC);
@@ -9,8 +10,7 @@ foreach ($menuItems as $menuItem) {
     $categoryName = $menuItem['Name_category'];
     $menuByCategory[$categoryName][] = $menuItem;
 }
-$result_filter = mysqli_query($connect, query: 'SELECT * FROM `category`');
-$result_nav = mysqli_query($connect, query: 'SELECT * FROM `category`');
+$result_aksii = mysqli_query($connect, query:'SELECT * FROM `aksi`');
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -25,49 +25,47 @@ $result_nav = mysqli_query($connect, query: 'SELECT * FROM `category`');
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Kaushan+Script&family=Montserrat:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
     <!--Стили элементов для корзины-->
-    <link href="https://lk.easynetshop.ru/frontend/v5/ens-5de72bb6.css" rel="stylesheet">
     <!--swiper-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <title>DiMoa</title>
 </head>
 
 <body>
-    <header class="header" id="header">
-        <div class="container">
-            <div class="header_inner">
-                <div class="logo"><a href="/">DiMoa</a></div>
+<header class="header">
+			<div class="container">
+				<div class="header__body">
+                    <div class="logo"><a href="">Dimoa</a></div>
 
-                <nav>
-                    <ul>
-                        <li><a href="/">Главная</a></li>
-                        <li><a href="#menu">Меню</a>
-                            <ul>
+					<div class="header__burger">
+						<span></span>
+					</div>
+					<nav class="header-menu">
+						<ul class="header-menu__list">
+                            <li><a href="/" class="header-menu__link">Главная</a></li>
+                            <li><a href="#menu" class="header-menu__link">Меню</a>
+                                <ul>
                                 <?php foreach ($categories as $category) : ?>
                                     <li><a href="#<?= $category['idCategory'] ?>"><?= $category['Name_category'] ?></a></li>
                                 <?php endforeach; ?>
-                            </ul>
-                        </li>
-                        <li><a href="aksii.php">Акции</a></li>
-                        <li><a href="kontact.php">Контакты</a></li>
-                        <li><a href="">Ещё</a>
-                            <ul>
-                                <li><a href="o_nas.php">О нас</a></li>
-                                <li><a href="sostav.php">Состав и калорийность</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </nav>
-
-
-                <div class="corzina" id="easynetshop-cart">
-                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAACXBIWXMAAAsTAAALEwEAmpwYAAACrUlEQVR4nO3W72sScRwH8KO/oOc96EHPehY96VHP1rMeBvP3ead3zmaoW1s1nG6DbZ7O7E8YYziCGptOGv2gH1Yrko2a2NTT6U1Dyslm20zLT2gJE9a8c3on4Rve8IH78uUFx4c7BOmkE3YxzQWvjrg+JS2uwFOk3UIthK/ZF0Ol+c85mF5Jg2U2kEbaJfe80SsOd+hgMbIHbnq/UttCBHCH/1V74Dyh3GHcrP8r2NwJMM2lhEU6l+guh3ujBudazQC1EAXr0m6lpvtfAHN8eN02uIkHwXW1czU36dkRDvkvnHU+6Cs/J50fuwRD1sNVIwiSLU4QJFccr8hGcbwgT4prKbJZuKYhI1rteFiFe8sNkeSTN7fHimvjdlib+FP/KAXv+oe3q2ca6ZpG9/6x3vLTN2SDal8MToJPd2ureiZCqOZjRt2FGhyt1Ti/URQUXC7BezA9DTRJZGqAGzj2XGhY4VCZ/j6oAYbU+KP8zIzgsMLfJoyGYg2QGTBcokkizQzcLG0NDoCQjRv0P6I9modHLkrCQJ5J9mpLRccU8F870HJJ/d+zTRWWEQL4fcQCNCq/WxdIK6TrQgDTRgNEMexyXWBYKvbkKSurS5NaDaf5uMbVqn0wm0/VBcaUir7s0B1WlzIagtN8XGNKNIywSQrDzrJdFKZJwMKUHSIyyTOEbeI4ts0nMGexQBSVT7AG0gpZgE9g2qCHuEp1kTUwLBV589Qkb8AEoc6xxlVeMYYOslkUpknAKIYGuQEJ+blk7/USH8BCZUGkywjXbOJYlg/grnm4vCBmzkBaLgvWA+6YTJzmIxdEfwNSpPI8Z2BEKl5m+0UpnqAJksgijSRG4GKmh/xVsNtahtsbGwVaLltpCFhBoqg2JOp+GRZ1v21FaZnEFVMoTjcM7OR/yG+55VR3p5ah8AAAAABJRU5ErkJggg==">
-                </div>
-
-            </div>
-        </div>
-
-    </header>
-
+                                </ul>
+                            </li>
+                            <li><a href="aksii.php" class="header-menu__link">Акции</a></li>
+                            <li><a href="kontact.php" class="header-menu__link">Контакты</a></li>
+                            <li><a href="" class="header-menu__link">Ещё</a>
+                                <ul>
+                                    <li><a href="o_nas.php">О нас</a></li>
+                                    <li><a href="sostav.php">Состав и калорийность</a></li>
+                                </ul>
+                            </li>
+						</ul>
+					</nav>
+                    <div class="corzina">
+                        <img class="corzina_open" src="image/shopping-basket-wight1.svg" alt="">
+                        <span class="corzina_kol">0</span>
+                    </div>
+				</div>
+			</div>
+</header>
 
     <div class="intro">
         <div class="intro_inner">
@@ -79,24 +77,87 @@ $result_nav = mysqli_query($connect, query: 'SELECT * FROM `category`');
         </div>
     </div>
 
+    <div class="zakaz">
+        <div class="zakaz_window">
+            <div class="zakaz_head">
+                <div class="product_name">Товар</div>
+                <div class="product_price">Цена</div>
+                <div class="product_quality">Количество</div>
+                <div class="product_itogo">Итого</div>
+                <div class="product_delete">Удалить</div>
+            </div>
+            <div class="smart_basket"></div>
+            
+            <div class="itogo">
+
+                <div class="cart-count-container">
+                    Количество товаров в корзине: <span class="cart-count">0</span>
+                </div>
+
+
+                <div class="total-container" name="total"  value="0">
+                            Общая сумма: <span class="total" name="total"  value="0">0</span>
+                </div>
+
+            </div>
+            
+            <form method="post" action="config/zakaz.php" id="checkoutForm">
+                <div class="checkout-form">
+                    <h2>Оформление заказа</h2>
+                    <input type="text" name="fullName" id="fullName" placeholder="ФИО" required>
+                    <input type="text" name="address" id="address" placeholder="Адрес" required>
+                    <input type="tel" name="phone" id="phone" placeholder="Телефон" required>
+                    <!-- Скрытое поле для передачи общей суммы заказа -->
+                    <input type="hidden" name="total" id="total" value="">
+                    <button type="submit" id="submitBtn">Оформить заказ</button>
+                </div>
+            </form>
+
+            <div id="orderConfirmationModal" class="Modal_thanks">
+                <div class="Modal_thanks-content">
+                    <h2>Заказ принят</h2>
+                    <p>Спасибо за ваш заказ!</p>
+                </div>
+            </div>
+        </div>
+        <button class="corzina__close">&#10006;</button>
+    </div>
+
     <section class="section">
         <div class="container">
             <div class="section_header">
-                <h2 class="section_title">Наши Акции</h2>
+                <h2 class="section_title" id="aksii_title">Наши Акции</h2>
             </div>
         </div>
     </section>
 
     <div class="swiper mySwiper">
         <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="image/aksii/1.jpg" alt=""></div>
-            <div class="swiper-slide"><img src="image/aksii/1.jpg" alt=""></div>
-            <div class="swiper-slide"><img src="image/aksii/1.jpg" alt=""></div>
-            <div class="swiper-slide"><img src="image/aksii/1.jpg" alt=""></div>
+        <?php foreach ($result_aksii as $aksii) : ?>
+            <div class="swiper-slide"><img src="<?= $aksii['Image'] ?>" alt=""></div>
+        <?php endforeach; ?>
         </div>
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
         <div class="swiper-pagination"></div>
+    </div>
+
+
+    <div class="mobile_menu">
+        <div class="container">
+            <div class="mobile_menu_content">
+            <?php
+                while ($menu_mobile = mysqli_fetch_assoc($mobileMenu)) {
+                ?>
+                <div class="category">
+                    <img src="<?= $menu_mobile['Image'] ?>" alt="">
+                    <a href="#<?= $menu_mobile['idCategory'] ?>"><?= $menu_mobile['Name_category'] ?></a>
+                </div>
+                <?php
+                }
+                ?>
+            </div>
+        </div>
     </div>
 
     <section class="section">
@@ -265,13 +326,18 @@ $result_nav = mysqli_query($connect, query: 'SELECT * FROM `category`');
                                     <div class="banner-image"><img src="<?= $menuItem['Image'] ?>" alt=""></div>
                                     <h3><?= $menuItem['Name'] ?></h3>
                                     <p><?= $menuItem['Description'] ?></p>
+                                    <h4 class="weight"><?= $menuItem['Weight'] ?></h4>
                                 </div>
-
+                                <div class="product__quantity"></div>
                                 <form class="button-wrapper" action="" method="post">
                                     <input type="hidden" value="<?= $menuItem['Price'] ?>">
                                     <h1 class="btn outline"><?= $menuItem['Price'] ?></h1>
                                     <input type="hidden" name="id" value="<?= $menuItem['idMenu'] ?>">
-                                    <button type="submit">Выбрать</button>
+                                    <a class="button_shop" data-sb-id-or-vendor-code="<?= $menuItem['idMenu'] ?>"
+                                    data-sb-product-name="<?= $menuItem['Name'] ?>"
+                                    data-sb-product-price="<?= $menuItem['Price'] ?>"
+                                    data-sb-product-quantity="1"
+                                    data-sb-product-img="<?= $menuItem['Image'] ?>" type="submit">Выбрать</a>
                                 </form>
                             </div>
                         </div>
@@ -280,7 +346,15 @@ $result_nav = mysqli_query($connect, query: 'SELECT * FROM `category`');
             <?php else : echo 'Товары отсутствуют' ?>
             <?php endif; ?>
         <?php endforeach; ?>
+        <div class="cart-notification" id="cartNotification">
+            Товар добавлен в корзину!
+        </div>
     </div>
+    
+        <div class="modal_food" id="modal_tovar">
+            <button class="modal__close">&#10006;</button>
+        <!-- Сюда будет вставлена информация из menu_card -->
+        </div>
 
     <div class="komentariya">
         <div class="komentariya_content">
@@ -296,7 +370,7 @@ $result_nav = mysqli_query($connect, query: 'SELECT * FROM `category`');
                         <input type="text" name="name" class="feedback-input" placeholder="Имя" />
                         <input type="text" name="email" class="feedback-input" placeholder="Email или телефон номер" />
                         <textarea name="komentariya" class="feedback-input" placeholder="Комментария"></textarea>
-                        <input type="file" name="file" class="feedback-input">
+                        <input type="file" name="files[]" class="feedback-input" multiple>
                         <input type="submit" value="Отправить" />
                         
                     </form>
@@ -336,20 +410,11 @@ $result_nav = mysqli_query($connect, query: 'SELECT * FROM `category`');
 
             <div class="footer_content">
                 <div class="footer_content_menu">
-                    <h2>Меню</h2>
+                    <h2>Меню</h2> 
                     <ul>
-                        <li><a href="#pizza">Пицца</a></li>
-                        <li><a href="">Бургкр</a></li>
-                        <li><a href="">Шаурма</a></li>
-                        <li><a href="">Роллы</a></li>
-                        <li><a href="">Салат</a></li>
-                        <li><a href="">Wok</a></li>
-                        <li><a href="">Закуски</a></li>
-                        <li><a href="">Десерты</a></li>
-                        <li><a href="">Самса</a></li>
-                        <li><a href="">Мясо</a></li>
-                        <li><a href="">Напитки</a></li>
-                        <li><a href="">Соусы</a></li>
+                    <?php foreach ($categories as $category) : ?>
+                        <li><a href="#<?= $category['idCategory'] ?>"><?= $category['Name_category'] ?></a></li>
+                    <?php endforeach; ?>
                     </ul>
                 </div>
 
@@ -398,15 +463,44 @@ $result_nav = mysqli_query($connect, query: 'SELECT * FROM `category`');
             <h3>&#169; Dimoa 2024</h3>
         </div>
     </div>
+    <div id="cookie-banner">
+        <p>Мы используем файлы cookie на нашем сайте, чтобы обеспечить наилучший опыт для вас. Продолжая использовать этот сайт, вы соглашаетесь на использование файлов cookie.</p>
+        <button id="accept-cookies-btn">Принять</button>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" crossorigin="anonymous"></script>
+    <script src="js/menu.js"></script>
     <script src="js/modal.js"></script>
     <script src="js/modal_menu.js"></script>
     <!--Библиотека jQuery-->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!--Готовый скрипт корзины-->
-    <script defer src="https://lk.easynetshop.ru/frontend/v5/ens-5de72bb6.js"></script>
     <!--Swiper-->
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="js/swiper.js"></script>
+
+    <script src="js/cart.js"></script>
+    <script src="js/file cooki.js"></script>
+
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const addToCartButtons = document.querySelectorAll('.button_shop');
+            const cartNotification = document.getElementById('cartNotification');
+
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    // Вместо этого места, где вы добавляете товар в корзину, вы можете вставить вашу логику
+                    // Здесь мы просто показываем уведомление о добавлении товара в корзину
+                    cartNotification.style.display = 'block';
+                    setTimeout(function() {
+                        cartNotification.style.display = 'none';
+                    }, 1000); // Скрыть уведомление через 2 секунды
+                });
+            });
+        });
+    </script>
+
+    
 </body>
 
 </html>

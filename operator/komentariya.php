@@ -1,43 +1,81 @@
 <?php
 session_start();
-require_once 'config/connect.php';
+require_once '../config/connect.php';
 $result_konentariya = mysqli_query($connect, query: "SELECT * FROM `komentariya` WHERE `Status` = 'Не прочитано' ORDER BY `komentariya`.`Date` ASC");
-if (!isset($_SESSION['user'])) {
-    header('Location: admin.php');
+if (!isset($_SESSION['operator'])) {
+    header('Location: ../admin.php');
 }
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/komentariya.css">
+    <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/komentariya.css">
     <title>Document</title>
 </head>
-
 <body>
-    <div class="user">
-        <div class="user_content">
-            <h2><?= $_SESSION['user']['Name'] ?> <?= $_SESSION['user']['Surname'] ?> <?= $_SESSION['user']['Patronymic'] ?> </h2>
-            <a class="btn_user" href="config/logout.php">ВЫХОД</a>
-        </div>
-
-    </div>
-    <div class="sidebar_menu">
-        <h2>DIMOA</h2>
-        <div class="sidebar_content">
-            <ul>
-                <li><a href="">Заказы</a></li>
-                <li><a href="">Уведомлении</a>
-                    <ul>
-                        <li><a href="komentariya.php">Новые</a></li>
-                        <li><a href="all_koment.php">Все</a></li>
+    <div class="sidebar close">
+            <div class="logo-details">
+                <i class="bx bxl-c-plus-plus"></i>
+                <span class="logo_name">Dimoa</span>
+            </div>
+            <ul class="nav-links">
+                <li>
+                    <div class="iocn-link">
+                        <a href="#">
+                            <i class='bx bx-briefcase-alt-2'></i>    
+                            <span class="link_name">Закзы</span>
+                        </a>
+                        <i class="bx bxs-chevron-down arrow"></i>
+                    </div>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="#">Заказы</a>
+                            <ul>
+                                <li><a href="zakaz.php">Новые</a></li>
+                                <li><a href="all_zakaz.php">Прочитанные</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </li>
+                </li>
+                <li>
+                    <div class="iocn-link">
+                        <a href="#">
+                            <i class='bx bx-message-detail'></i>    
+                            <span class="link_name">Комментарии</span>
+                        </a>
+                        <i class="bx bxs-chevron-down arrow"></i>
+                    </div>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="#">Комментарии</a>
+                            <ul>
+                                <li><a href="komentariya.php">Новые</a></li>
+                                <li><a href="all_koment.php">Прочитанные</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="profile-details">
+                        <div class="profile-content">
+                            <!--<img src="image/profile.jpg" alt="profileImg">-->
+                        </div>
+                        <div class="name-job">
+                            <div class="profile_name"><?= $_SESSION['operator']['Name'] ?> <?= $_SESSION['operator']['Surname'] ?></div>
+                            <div class="job"><?= $_SESSION['operator']['Post'] ?></div>
+                        </div>
+                        <a href="../config/logout.php"><i class="bx bx-log-out"></i></a>
+                    </div>
+                </li>
             </ul>
-        </div>
     </div>
+    <section class="home-section">
+        <div class="home-content">
+            <i class="bx bx-menu"></i>
+        </div>
+    </section>
     <div class="komentariya">
         <div class="container_komentariya">
             <div class="content_komentariya">
@@ -73,35 +111,8 @@ if (!isset($_SESSION['user'])) {
                 ?>
             </div>
         </div>
-
     </div>
-    <div class="create">
-        <div class="container_create">
-            <h1>Добавление категории</h1>
-            <form action="config/create_category.php" method="post">
-                <input type="text" name="Name" placeholder="Названия">
-                <button type="submit">Добавить</button>
-            </form>
-            <button class="modal__close">&#10006;</button>
-        </div>
-    </div>
-
-    <div class="create_aksi">
-        <div class="container_create_aksi">
-            <h1>Добавление акции</h1>
-            <div class="content_create_aksi">
-                <form action="config/create_aksi.php" method="post" enctype="multipart/form-data">
-                    <input type="text" name="Name" placeholder="Названия">
-                    <input type="date" name="Date">
-                    <textarea name="Description" placeholder="Названия"></textarea>
-                    <input type="file" name="file">
-                    <button type="submit">Добавить</button>
-                </form>
-                <button class="modal__close">&#10006;</button>
-            </div>
-        </div>
-    </div>
-    <script src="js/profile.js"></script>
+    <script src="../js/swiper_menu.js"></script>
 </body>
 
 </html>

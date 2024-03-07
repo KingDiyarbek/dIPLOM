@@ -1,5 +1,14 @@
 @import 'update.css';
-.update_content {
+.update {
+    padding-top: 50px;
+}
+
+.container_tovar {
+    max-width: 650px;
+}
+
+.update_category {
+margin: 0 auto;
 display: grid;
 grid-template-columns: 1fr;
 grid-template-rows: repeat(2, 1fr);
@@ -23,6 +32,19 @@ font-size: 20px;
 border-top: 3px solid rgb(185, 52, 52);
 }
 
+.category a {
+    text-decoration: none;
+    color: rgb(4, 54, 192);
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    transition: .3s linear;
+}
+
+.category a:hover {
+    color: aqua;
+}
+
 .category h3 {
 padding: 10px;
 }
@@ -43,14 +65,14 @@ background: red;
 }
 
 .create_category {
-border: none;
-cursor: pointer;
-border-radius: 20px;
-text-decoration: none;
-font-size: 20px;
-color: black;
-background: coral;
-padding: 20px;
+    background-color: red;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    color: white;
+    font-weight: 700;
+    font-size: 20px;
+    cursor: pointer;
 }
 
 .create {
