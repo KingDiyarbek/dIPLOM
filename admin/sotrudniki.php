@@ -123,20 +123,13 @@ if (!isset($_SESSION['admin'])) {
             <h1>Добавление сотрудника</h1>
             <div class="content_create_user">
                 <form action="../config/create_user.php" method="post" enctype="multipart/form-data">
-                    <label for="Surname">Фамилия</label>
-                    <input type="text" name="Surname">
-                    <label for="Name">Имя</label>
-                    <input type="text" name="Name">
-                    <label for="Patronymic">Очество</label>
-                    <input type="text" name="Patronymic">
-                    <label for="Post">Должность</label>
-                    <input type="text" name="Post">
-                    <label for="Image">Фотография</label>
-                    <input type="file" name="file">
-                    <label for="login">Логин</label>
-                    <input type="text" name="login">
-                    <label for="password">Пароль</label>
-                    <input type="text" name="password">
+                    <input type="text" name="Surname" placeholder="Фамилия">
+                    <input type="text" name="Name" placeholder="Имя">
+                    <input type="text" name="Patronymic" placeholder="Отчество">
+                    <input type="text" name="Post" placeholder="Должность">
+                    <input type="file" name="file" >
+                    <input type="text" name="login" placeholder="Логин">
+                    <input type="text" name="password" placeholder="Пароль">
                     <button type="submit">Добавить</button>
                 </form>
                 <button class="modal__close">&#10006;</button>

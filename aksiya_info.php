@@ -3,7 +3,7 @@ require_once 'config/connect.php';
 $listCategory = mysqli_query($connect, query: 'SELECT * FROM `category`');
 $categories = mysqli_fetch_all($listCategory, MYSQLI_ASSOC);
 $id_aksiya = $_GET['id'];
-$aksiya_info = mysqli_query($connect, query:"SELECT * FROM `aksi` WHERE `idAksi` = '$id_aksiya'");
+$aksiya_info = mysqli_query($connect, query:"SELECT aksii.*, img.File FROM aksii INNER JOIN img ON aksii.Image = img.id WHERE `idAksiya` = '$id_aksiya'");
 $aksiya_info = mysqli_fetch_assoc($aksiya_info);
 ?>
 <!DOCTYPE html>
@@ -106,7 +106,7 @@ $aksiya_info = mysqli_fetch_assoc($aksiya_info);
             </div>                       
         </div>
         <div class="image_aksi">
-            <img src=<?= $aksiya_info['Image'] ?> alt="">
+            <img src=<?= $aksiya_info['File'] ?> alt="">
         </div>
     </div>
 </div>

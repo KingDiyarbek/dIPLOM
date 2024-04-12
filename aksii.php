@@ -1,6 +1,6 @@
 <?php
 require_once 'config/connect.php';
-$result_aksii = mysqli_query($connect, query:'SELECT * FROM `aksi`');
+$result_aksii = mysqli_query($connect, query:"SELECT aksii.*, img.File FROM aksii INNER JOIN img ON aksii.Image = img.id");
 $listCategory = mysqli_query($connect, query: 'SELECT * FROM `category`');
 $categories = mysqli_fetch_all($listCategory, MYSQLI_ASSOC);
 ?>
@@ -112,14 +112,14 @@ $categories = mysqli_fetch_all($listCategory, MYSQLI_ASSOC);
                 {
                     ?>
                     <form action="aksiya_info.php">
-                        <a href="aksiya_info.php?id=<?= $aksi['idAksi'] ?>">
+                        <a href="aksiya_info.php?id=<?= $aksi['idAksiya'] ?>">
                             <div class="aksi_content">
-                                <div class="img_card"><img  src="<?= $aksi['Image'] ?>" alt="">
-                                    <a href="aksiya_info.php?id=<?= $aksi['idAksi'] ?>" class="button_red">Подробнее</a>
+                                <div class="img_card"><img  src="<?= $aksi['File'] ?>" alt="">
+                                    <a href="aksiya_info.php?id=<?= $aksi['idAksiya'] ?>" class="button_red">Подробнее</a>
                                 </div>
-                                <div class="aksi_content_text"><a href="aksiya_info.php?id=<?= $aksi['idAksi'] ?>">
+                                <div class="aksi_content_text"><a href="aksiya_info.php?id=<?= $aksi['idAksiya'] ?>">
                                     <div class="data">
-                                        <h3 class="data"><?= $aksi['Data']; ?></h3>
+                                        <h3 class="data"><?= $aksi['Date']; ?></h3>
                                     </div>
                                     <div class="aksi_text">
                                         <h2><?= $aksi['Name']; ?></h2>

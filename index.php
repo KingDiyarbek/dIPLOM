@@ -3,11 +3,12 @@ require_once 'config/connect.php';
 $listCategory = mysqli_query($connect, query: 'SELECT * FROM `category`');
 $mobileMenu = mysqli_query($connect, query: 'SELECT * FROM `category`');
 $categories = mysqli_fetch_all($listCategory, MYSQLI_ASSOC);
-$menuItems = mysqli_query($connect, "SELECT menu.*, category.Name_category FROM menu INNER JOIN category ON menu.Category_idCategory = category.idCategory");
+$menuItems = mysqli_query($connect, "SELECT menu_1.*, category.Name, img.File FROM menu_1 INNER JOIN category ON menu_1.Category = category.idCategory LEFT JOIN img ON menu_1.Image = img.id;
+");
 $menuItems = mysqli_fetch_all($menuItems, MYSQLI_ASSOC);
 $menuByCategory = [];
 foreach ($menuItems as $menuItem) {
-    $categoryName = $menuItem['Name_category'];
+    $categoryName = $menuItem['Name'];
     $menuByCategory[$categoryName][] = $menuItem;
 }
 $result_aksii = mysqli_query($connect, query:'SELECT * FROM `aksi`');
@@ -45,7 +46,7 @@ $result_aksii = mysqli_query($connect, query:'SELECT * FROM `aksi`');
                             <li><a href="#menu" class="header-menu__link">Меню</a>
                                 <ul>
                                 <?php foreach ($categories as $category) : ?>
-                                    <li><a href="#<?= $category['idCategory'] ?>"><?= $category['Name_category'] ?></a></li>
+                                    <li><a href="#<?= $category['idCategory'] ?>"><?= $category['Name'] ?></a></li>
                                 <?php endforeach; ?>
                                 </ul>
                             </li>
@@ -107,6 +108,11 @@ $result_aksii = mysqli_query($connect, query:'SELECT * FROM `aksi`');
                     <input type="text" name="fullName" id="fullName" placeholder="ФИО" required>
                     <input type="text" name="address" id="address" placeholder="Адрес" required>
                     <input type="tel" name="phone" id="phone" placeholder="Телефон" required>
+                    <textarea name="komentariya" id="" cols="30" rows="10"></textarea>
+                    <label class="cl-checkbox">
+                        <input checked="" type="checkbox">
+                        <span>Даю согласия на обработку персональных данных</span>
+                    </label>
                     <!-- Скрытое поле для передачи общей суммы заказа -->
                     <input type="hidden" name="total" id="total" value="">
                     <button type="submit" id="submitBtn">Оформить заказ</button>
@@ -308,7 +314,7 @@ $result_aksii = mysqli_query($connect, query:'SELECT * FROM `aksi`');
         <div class="container">
             <div class="filter_content">
                 <?php foreach ($categories as $category) : ?>
-                    <a class="filter_text" href="#<?= $category['idCategory'] ?>"><?= $category['Name_category'] ?> </a>
+                    <a class="filter_text" href="#<?= $category['idCategory'] ?>"><?= $category['Name'] ?> </a>
                 <?php endforeach; ?>
 
             </div>
@@ -316,14 +322,14 @@ $result_aksii = mysqli_query($connect, query:'SELECT * FROM `aksi`');
     </div>
     <div class="menu">
         <?php foreach ($categories as $category) : ?>
-            <h2 class="Name_category" id="<?= $category['idCategory'] ?>"><?= $category['Name_category'] ?></h2>
-            <?php if (isset($menuByCategory[$category['Name_category']])) : ?>
-                <?php foreach ($menuByCategory[$category['Name_category']] as $menuItem) : ?>
+            <h2 class="Name_category" id="<?= $category['idCategory'] ?>"><?= $category['Name'] ?></h2>
+            <?php if (isset($menuByCategory[$category['Name']])) : ?>
+                <?php foreach ($menuByCategory[$category['Name']] as $menuItem) : ?>
                     <div class="tovar">
                         <div class="menu_card">
                             <div class="container_1">
                                 <div class="wrapper">
-                                    <div class="banner-image"><img src="<?= $menuItem['Image'] ?>" alt=""></div>
+                                    <div class="banner-image"><img src="<?= $menuItem['File'] ?>" alt=""></div>
                                     <h3><?= $menuItem['Name'] ?></h3>
                                     <p><?= $menuItem['Description'] ?></p>
                                     <h4 class="weight"><?= $menuItem['Weight'] ?></h4>
@@ -337,7 +343,7 @@ $result_aksii = mysqli_query($connect, query:'SELECT * FROM `aksi`');
                                     data-sb-product-name="<?= $menuItem['Name'] ?>"
                                     data-sb-product-price="<?= $menuItem['Price'] ?>"
                                     data-sb-product-quantity="1"
-                                    data-sb-product-img="<?= $menuItem['Image'] ?>" type="submit">Выбрать</a>
+                                    data-sb-product-img="<?= $menuItem['File'] ?>" type="submit">Выбрать</a>
                                 </form>
                             </div>
                         </div>
@@ -371,6 +377,10 @@ $result_aksii = mysqli_query($connect, query:'SELECT * FROM `aksi`');
                         <input type="text" name="email" class="feedback-input" placeholder="Email или телефон номер" />
                         <textarea name="komentariya" class="feedback-input" placeholder="Комментария"></textarea>
                         <input type="file" name="files[]" class="feedback-input" multiple>
+                        <label class="cl-checkbox">
+                            <input checked="" type="checkbox">
+                            <span>Даю согласия на обработку персональных данных</span>
+                        </label>
                         <input type="submit" value="Отправить" />
                         
                     </form>
@@ -413,7 +423,7 @@ $result_aksii = mysqli_query($connect, query:'SELECT * FROM `aksi`');
                     <h2>Меню</h2> 
                     <ul>
                     <?php foreach ($categories as $category) : ?>
-                        <li><a href="#<?= $category['idCategory'] ?>"><?= $category['Name_category'] ?></a></li>
+                        <li><a href="#<?= $category['idCategory'] ?>"><?= $category['Name'] ?></a></li>
                     <?php endforeach; ?>
                     </ul>
                 </div>

@@ -37,7 +37,7 @@ if (mysqli_num_rows($chek_user) > 0) {
         "Patronymic" => $operator['Patronymic'],
         "Post" => $operator['Post']
     ];
-    header('Location:../operator/komentariya.php');
+    header('Location:../operator/zakaz.php');
 } else {
     $_SESSION['message'] = 'Неверный логин или пароль';
     header('Location:../admin.php');

@@ -1,8 +1,8 @@
 <?php
 session_start();
 require_once '../config/connect.php';
-$result_sidebar = mysqli_query($connect, query:'SELECT * FROM `category`');
-$result_category = mysqli_query($connect, query:'SELECT * FROM `category`');
+$result_sidebar = mysqli_query($connect, query:'SELECT * FROM `categoty_1`');
+$result_category = mysqli_query($connect, query:'SELECT * FROM `categoty_1`');
 if (!isset($_SESSION['admin'])) {
     header('Location: ../admin.php');
 }
@@ -52,7 +52,7 @@ if (!isset($_SESSION['admin'])) {
                     <?php
                     while ($sidebar = mysqli_fetch_assoc($result_sidebar)) {
                     ?>
-                    <li><a href="tovar.php?id=<?= $sidebar['idCategory'] ?>"><?= $sidebar['Name_category']; ?></a></li>
+                    <li><a href="tovar.php?id=<?= $sidebar['idCategory'] ?>"><?= $sidebar['Name']; ?></a></li>
                     <?php
                     }
                     ?>
@@ -95,7 +95,7 @@ if (!isset($_SESSION['admin'])) {
                     {
                         ?>
                         <div class="category">
-                            <h3><?= $category['Name_category'] ?></h3>
+                            <h3><?= $category['Name'] ?></h3>
                             <a href="update_category.php?id=<?= $category['idCategory'] ?>">Изменить</a>
                             <a href="../config/delete_category.php?id=<?= $category['idCategory'] ?>">Удалить</a>
                         </div>
@@ -110,8 +110,9 @@ if (!isset($_SESSION['admin'])) {
 <div class="create">
     <div class="container_create">
         <h1>Добавление категории</h1>
-        <form action="config/create_category.php" method="post">
+        <form action="../config/create_category.php" method="post" enctype="multipart/form-data">
             <input type="text" name="Name" placeholder="Названия">
+            <input type="file" name="file">
             <button type="submit">Добавить</button>
         </form>
         <button class="modal__close">&#10006;</button>
